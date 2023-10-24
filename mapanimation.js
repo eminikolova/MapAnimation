@@ -20,13 +20,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGVzdHVzZXIxMDAwIiwiYSI6ImNraDkzZ2pkMzAzMHoyc
 // This is the map instance
 let map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11',
+  style: 'mapbox://styles/mapbox/navigation-day-v1',
   center: [-90.19563875264437,38.6175565997373],
   zoom: 14,
 });
 
+const el = document.createElement('div');
+el.className = 'marker';
+
 // TODO: add a marker to the map at the first coordinates in the array busStops. The marker variable should be named "marker"
-var marker = new mapboxgl.Marker().setLngLat([-71.093729, 42.359244]).addTo(map);
+var marker = new mapboxgl.Marker(el).setLngLat([-71.093729, 42.359244]).addTo(map);
 // counter here represents the index of the current bus stop
 let counter = 0;
 function move() {
